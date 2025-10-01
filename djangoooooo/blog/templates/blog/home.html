@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Blog</title>
+</head>
+<body>
+    <header>
+        {% if is_logged_in %}
+            <h2>Bem vindo de volta</h2>
+        {% else %}
+            <h2>Loga ai de novo</h2>
+        {% endif%}
+    </header>
+    <h1>{{msg}}</h1>
+    <h1>Dia de hj pa tu pae: {{now|date:"d/m/Y"}}</h1>
+    <p>O dobro: {{numero}}</p>
+    <p>
+        Com {{idade}} anos você é: 
+        {% if idade >= 18 %}
+
+            Maior de idade
+
+        {%else%}
+
+            Menor de idade
+
+        {%endif%}
+    </p>
+
+    <p> sua role é {{role}} e é essa é a mensagem: 
+        {%if role == 'ADMIN' %}
+         EAE ADMINIMUNIMINATRATOR
+        {%else%}
+         SAI DAQUII USUARIOOO
+        {%endif%}
+    </p>
+
+    <h1>Tabela produtos</h1>
+
+    <table>
+        <thead>
+            <tr>
+
+                <th>posicao</th>
+                <th>nome</th>
+                <th>preço</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in produtos%}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{p.nome}}</td>
+                <td>{{p.preco}}</td>
+            </tr>
+            {%endfor%}
+            <td></td>
+        </tbody>
+    </table>
+<footer>
+    <a href="{% url 'contato' '(83)98828-2350' %}">contato</a>
+</footer>
+</body>
+</html>
