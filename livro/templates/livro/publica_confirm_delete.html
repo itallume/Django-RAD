@@ -1,0 +1,11 @@
+{% extends 'livro/base.html' %}
+{% block title %}Excluir Publicação{% endblock %}
+{% block content %}
+  <h1>Excluir Publicação</h1>
+  <p>Tem certeza que deseja excluir a publicação de <strong>{{ object.autor.nome }}</strong> para o livro <strong>{{ object.livro.titulo }}</strong>?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">Sim, excluir</button>
+    <a class="btn btn-secondary" href="{% url 'livro:publica-list' %}">Cancelar</a>
+  </form>
+{% endblock %}

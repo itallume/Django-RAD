@@ -1,0 +1,27 @@
+{% extends 'livro/base.html' %}
+{% block title %}Editoras{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1>Editoras</h1>
+  <a class="btn btn-primary" href="{% url 'livro:editora-add' %}">Nova Editora</a>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr><th>Nome</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for e in editoras %}
+      <tr>
+        <td>{{ e.nome }}</td>
+        <td class="text-end">
+          <a class="btn btn-sm btn-outline-secondary" href="{% url 'livro:editora-detail' e.pk %}">Ver</a>
+          <a class="btn btn-sm btn-outline-primary" href="{% url 'livro:editora-edit' e.pk %}">Editar</a>
+          <a class="btn btn-sm btn-outline-danger" href="{% url 'livro:editora-delete' e.pk %}">Excluir</a>
+        </td>
+      </tr>
+    {% empty %}
+      <tr><td colspan="2">Nenhuma editora cadastrada.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

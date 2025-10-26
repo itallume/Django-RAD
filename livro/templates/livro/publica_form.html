@@ -1,0 +1,12 @@
+{% extends 'livro/base.html' %}
+{% block title %}Publicação Form{% endblock %}
+{% block content %}
+  <h1>{% if object %}Editar{% else %}Nova{% endif %} Publicação</h1>
+  <form method="post" class="mt-3">
+    {% csrf_token %}
+    <div class="mb-3">{{ form.livro.label_tag }}{{ form.livro }}</div>
+    <div class="mb-3">{{ form.autor.label_tag }}{{ form.autor }}</div>
+    <button class="btn btn-success">Salvar</button>
+    <a class="btn btn-secondary" href="{% url 'livro:publica-list' %}">Cancelar</a>
+  </form>
+{% endblock %}

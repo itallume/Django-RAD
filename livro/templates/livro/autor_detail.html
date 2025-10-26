@@ -1,0 +1,8 @@
+{% extends 'livro/base.html' %}
+{% block title %}Autor: {{ object.nome }}{% endblock %}
+{% block content %}
+  <h1>{{ object.nome }}</h1>
+  <a class="btn btn-primary" href="{% url 'livro:autor-edit' object.pk %}">Editar</a>
+  <a class="btn btn-danger" href="{% url 'livro:autor-delete' object.pk %}">Excluir</a>
+  <a class="btn btn-secondary" href="{% url 'livro:autor-list' %}">Voltar</a>
+{% endblock %}

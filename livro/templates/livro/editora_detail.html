@@ -1,0 +1,9 @@
+{% extends 'livro/base.html' %}
+{% block title %}Editora: {{ object.nome }}{% endblock %}
+{% block content %}
+  <h1>{{ object.nome }}</h1>
+  <p>ID: {{ object.pk }}</p>
+  <a class="btn btn-primary" href="{% url 'livro:editora-edit' object.pk %}">Editar</a>
+  <a class="btn btn-danger" href="{% url 'livro:editora-delete' object.pk %}">Excluir</a>
+  <a class="btn btn-secondary" href="{% url 'livro:editora-list' %}">Voltar</a>
+{% endblock %}

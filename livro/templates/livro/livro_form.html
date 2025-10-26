@@ -1,0 +1,21 @@
+{% extends 'livro/base.html' %}
+{% block title %}Livro Form{% endblock %}
+{% block content %}
+  <h1>{% if object %}Editar{% else %}Novo{% endif %} Livro</h1>
+  <form method="post" class="mt-3">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="row">
+      <div class="col-md-6 mb-3">{{ form.isbn.label_tag }}{{ form.isbn }}</div>
+      <div class="col-md-6 mb-3">{{ form.titulo.label_tag }}{{ form.titulo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-3">{{ form.data_publicacao.label_tag }}{{ form.data_publicacao }}</div>
+      <div class="col-md-4 mb-3">{{ form.preco.label_tag }}{{ form.preco }}</div>
+      <div class="col-md-4 mb-3">{{ form.estoque.label_tag }}{{ form.estoque }}</div>
+    </div>
+    <div class="mb-3">{{ form.editora.label_tag }}{{ form.editora }}</div>
+    <button class="btn btn-success">Salvar</button>
+    <a class="btn btn-secondary" href="{% url 'livro:livro-list' %}">Cancelar</a>
+  </form>
+{% endblock %}

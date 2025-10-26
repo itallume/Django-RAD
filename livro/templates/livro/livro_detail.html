@@ -1,0 +1,15 @@
+{% extends 'livro/base.html' %}
+{% block title %}Livro: {{ object.titulo }}{% endblock %}
+{% block content %}
+  <h1>{{ object.titulo }}</h1>
+  <dl class="row">
+    <dt class="col-sm-3">ISBN</dt><dd class="col-sm-9">{{ object.isbn }}</dd>
+    <dt class="col-sm-3">Data</dt><dd class="col-sm-9">{{ object.data_publicacao }}</dd>
+    <dt class="col-sm-3">Preço</dt><dd class="col-sm-9">{{ object.preco }}</dd>
+    <dt class="col-sm-3">Estoque</dt><dd class="col-sm-9">{{ object.estoque }}</dd>
+    <dt class="col-sm-3">Editora</dt><dd class="col-sm-9">{{ object.editora.nome }}</dd>
+  </dl>
+  <a class="btn btn-primary" href="{% url 'livro:livro-edit' object.pk %}">Editar</a>
+  <a class="btn btn-danger" href="{% url 'livro:livro-delete' object.pk %}">Excluir</a>
+  <a class="btn btn-secondary" href="{% url 'livro:livro-list' %}">Voltar</a>
+{% endblock %}

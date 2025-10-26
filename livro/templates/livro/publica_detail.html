@@ -1,0 +1,10 @@
+{% extends 'livro/base.html' %}
+{% block title %}Publicação{% endblock %}
+{% block content %}
+  <h1>Publicação</h1>
+  <p><strong>Livro:</strong> {{ object.livro.titulo }}</p>
+  <p><strong>Autor:</strong> {{ object.autor.nome }}</p>
+  <a class="btn btn-primary" href="{% url 'livro:publica-edit' object.pk %}">Editar</a>
+  <a class="btn btn-danger" href="{% url 'livro:publica-delete' object.pk %}">Excluir</a>
+  <a class="btn btn-secondary" href="{% url 'livro:publica-list' %}">Voltar</a>
+{% endblock %}

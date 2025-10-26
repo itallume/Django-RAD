@@ -1,0 +1,15 @@
+{% extends 'livro/base.html' %}
+{% block title %}Autor Form{% endblock %}
+{% block content %}
+  <h1>{% if object %}Editar{% else %}Novo{% endif %} Autor</h1>
+  <form method="post" class="mt-3">
+    {% csrf_token %}
+    <div class="mb-3">
+      {{ form.nome.label_tag }}
+      {{ form.nome }}
+      {% for err in form.nome.errors %}<div class="text-danger">{{ err }}</div>{% endfor %}
+    </div>
+    <button class="btn btn-success">Salvar</button>
+    <a class="btn btn-secondary" href="{% url 'livro:autor-list' %}">Cancelar</a>
+  </form>
+{% endblock %}
